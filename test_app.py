@@ -13,6 +13,7 @@ from app import (
     WordHistogram,
     add,
     add9,
+    clampx,
     dozenx,
     factorial,
     heptax,
@@ -186,6 +187,14 @@ def test_dozenx():
     assert dozenx(0) == 0
     assert dozenx(3) == 36
     assert dozenx(-2) == -24
+
+
+def test_clampx_returns_bounds_or_value_within_inclusive_range():
+    assert clampx(-1, 0, 10) == 0
+    assert clampx(0, 0, 10) == 0
+    assert clampx(5, 0, 10) == 5
+    assert clampx(10, 0, 10) == 10
+    assert clampx(11, 0, 10) == 10
 
 
 def test_factorial():

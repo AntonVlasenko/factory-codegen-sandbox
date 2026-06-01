@@ -218,6 +218,10 @@ def dozenx(n: int) -> int:
     return n * 12
 
 
+def clampx(x: int | float, lo: int | float, hi: int | float) -> int | float:
+    return max(lo, min(x, hi))
+
+
 def factorial(n: int) -> int:
     result = 1
     for value in range(2, n + 1):
