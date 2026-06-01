@@ -29,6 +29,20 @@ class Tag:
         return self.name.lower() in text.lower()
 
 
+@dataclass
+class Matrix2x2:
+    a: float
+    b: float
+    c: float
+    d: float
+
+    def determinant(self) -> float:
+        return self.a * self.d - self.b * self.c
+
+    def multiply_vector(self, x: float, y: float) -> tuple[float, float]:
+        return (self.a * x + self.b * y, self.c * x + self.d * y)
+
+
 def add(a: int, b: int) -> int:
     return a + b
 

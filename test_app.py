@@ -1,4 +1,5 @@
 from app import (
+    Matrix2x2,
     RangeBucket,
     Tag,
     add,
@@ -21,6 +22,13 @@ def test_range_bucket_labels_first_matching_bound_and_overflow():
     assert bucket.label(11) == "bucket_1"
     assert bucket.label(30) == "bucket_2"
     assert bucket.label(31) == "bucket_overflow"
+
+
+def test_matrix2x2_determinant_and_vector_multiplication():
+    matrix = Matrix2x2(1, 2, 3, 4)
+
+    assert matrix.determinant() == -2
+    assert matrix.multiply_vector(5, 6) == (17, 39)
 
 
 def test_add():
