@@ -194,6 +194,10 @@ def iz2(n: int) -> int:
     return n * 5
 
 
+def iz4(n: int) -> int:
+    return n * 9
+
+
 def pentax(n: int) -> int:
     return n * 5
 

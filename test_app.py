@@ -19,6 +19,7 @@ from app import (
     heptax,
     iz1,
     iz2,
+    iz4,
     lerpx,
     ninex,
     nove,
@@ -156,6 +157,12 @@ def test_iz2():
     assert iz2(0) == 0
     assert iz2(3) == 15
     assert iz2(-2) == -10
+
+
+def test_iz4():
+    assert iz4(0) == 0
+    assert iz4(3) == 27
+    assert iz4(-2) == -18
 
 
 def test_pentax():
