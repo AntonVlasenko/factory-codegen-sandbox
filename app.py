@@ -38,6 +38,10 @@ def nove(n: int) -> int:
     return n * 9
 
 
+def ninex(n: int) -> int:
+    return n * 9
+
+
 def dozenx(n: int) -> int:
     return n * 12
 
