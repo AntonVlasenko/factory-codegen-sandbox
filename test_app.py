@@ -1,4 +1,5 @@
 from app import (
+    BracketValidator,
     Matrix2x2,
     RangeBucket,
     Tag,
@@ -133,3 +134,26 @@ def test_word_histogram_counts_lowercase_alphabetic_words_only():
         "hello": 3,
         "world": 2,
     }
+
+
+def test_bracket_validator_accepts_balanced_nested_brackets():
+    validator = BracketValidator()
+
+    assert validator.is_balanced("")
+    assert validator.is_balanced("plain text without brackets")
+    assert validator.is_balanced("function({items: [1, 2, (3)]})")
+
+
+def test_bracket_validator_rejects_mismatched_brackets():
+    validator = BracketValidator()
+
+    assert not validator.is_balanced("(]")
+    assert not validator.is_balanced("([)]")
+    assert not validator.is_balanced("text } before open")
+
+
+def test_bracket_validator_rejects_unclosed_brackets():
+    validator = BracketValidator()
+
+    assert not validator.is_balanced("(")
+    assert not validator.is_balanced("({[]}")

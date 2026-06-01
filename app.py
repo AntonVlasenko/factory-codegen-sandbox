@@ -51,6 +51,27 @@ class WordHistogram:
         return dict(Counter(words))
 
 
+class BracketValidator:
+    def is_balanced(self, text: str) -> bool:
+        opening_to_closing = {
+            "(": ")",
+            "[": "]",
+            "{": "}",
+        }
+        closing_to_opening = {closing: opening for opening, closing in opening_to_closing.items()}
+        stack: list[str] = []
+
+        for character in text:
+            if character in opening_to_closing:
+                stack.append(character)
+            elif character in closing_to_opening:
+                if not stack or stack[-1] != closing_to_opening[character]:
+                    return False
+                stack.pop()
+
+        return not stack
+
+
 def add(a: int, b: int) -> int:
     return a + b
 
