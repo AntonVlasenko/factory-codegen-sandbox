@@ -13,6 +13,7 @@ from app import (
     pentax,
     septuple,
     triplex,
+    valb,
 )
 
 
@@ -77,6 +78,12 @@ def test_pentax():
     assert pentax(0) == 0
     assert pentax(3) == 15
     assert pentax(-2) == -10
+
+
+def test_valb():
+    assert valb(0) == 0
+    assert valb(3) == 18
+    assert valb(-2) == -12
 
 
 def test_dozenx():
