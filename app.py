@@ -79,12 +79,20 @@ def triplex(n: int) -> int:
     return n * 3
 
 
+def quadex(n: int) -> int:
+    return n * 4
+
+
 def pentax(n: int) -> int:
     return n * 5
 
 
 def dozenx(n: int) -> int:
     return n * 12
+
+
+def elevex(n: int) -> int:
+    return n * 11
 
 
 def factorial(n: int) -> int:
