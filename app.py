@@ -124,6 +124,10 @@ def valb(n: int) -> int:
     return n * 6
 
 
+def walb(n: int) -> int:
+    return n * 6
+
+
 def vald(n: int) -> int:
     return n * 11
 
