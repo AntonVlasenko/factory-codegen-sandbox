@@ -7,6 +7,7 @@ from app import (
     RangeBucket,
     Tag,
     TemperatureConverter,
+    TextAnalyzer,
     TimeRange,
     TitleCaseFormatter,
     WordHistogram,
@@ -214,6 +215,28 @@ def test_word_histogram_counts_lowercase_alphabetic_words_only():
         "hello": 3,
         "world": 2,
     }
+
+
+def test_text_analyzer_counts_words_case_insensitively_and_strips_punctuation():
+    analyzer = TextAnalyzer("Hello, hello! HELLO... world? 'world'")
+
+    assert analyzer.word_count() == 5
+    assert analyzer.unique_words() == ["hello", "world"]
+    assert analyzer.most_common_word() == "hello"
+
+
+def test_text_analyzer_unique_words_are_sorted():
+    analyzer = TextAnalyzer("banana apple, Cherry! apple")
+
+    assert analyzer.unique_words() == ["apple", "banana", "cherry"]
+
+
+def test_text_analyzer_returns_none_when_text_has_no_words():
+    analyzer = TextAnalyzer("... !!! ---")
+
+    assert analyzer.word_count() == 0
+    assert analyzer.unique_words() == []
+    assert analyzer.most_common_word() is None
 
 
 def test_temperature_converter_celsius_to_fahrenheit_freezing_and_boiling():

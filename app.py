@@ -6,6 +6,7 @@ The factory's Phase 11 vertical adds/edits functions here; pytest is the gate.
 from dataclasses import dataclass
 from collections import Counter
 import re
+import string
 
 
 @dataclass
@@ -68,6 +69,34 @@ class WordHistogram:
     def top_counts(self, text: str) -> dict[str, int]:
         words = re.findall(r"[a-z]+", text.lower())
         return dict(Counter(words))
+
+
+class TextAnalyzer:
+    def __init__(self, text: str):
+        self.text = text
+
+    def _words(self) -> list[str]:
+        return [
+            word
+            for word in (
+                raw_word.strip(string.punctuation).lower()
+                for raw_word in self.text.split()
+            )
+            if word
+        ]
+
+    def word_count(self) -> int:
+        return len(self._words())
+
+    def unique_words(self) -> list[str]:
+        return sorted(set(self._words()))
+
+    def most_common_word(self) -> str | None:
+        words = self._words()
+        if not words:
+            return None
+
+        return Counter(words).most_common(1)[0][0]
 
 
 class TemperatureConverter:
