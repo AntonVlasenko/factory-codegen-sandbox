@@ -21,6 +21,7 @@ from app import (
     nove,
     pentax,
     septuple,
+    signx,
     triplex,
     vala,
     valb,
@@ -187,6 +188,12 @@ def test_dozenx():
     assert dozenx(0) == 0
     assert dozenx(3) == 36
     assert dozenx(-2) == -24
+
+
+def test_signx_returns_negative_zero_or_positive_sign():
+    assert signx(-10) == -1
+    assert signx(0) == 0
+    assert signx(7) == 1
 
 
 def test_clampx_returns_bounds_or_value_within_inclusive_range():
