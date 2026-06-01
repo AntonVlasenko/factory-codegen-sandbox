@@ -1,4 +1,4 @@
-from app import add, clamp, is_even, subtract
+from app import add, clamp, is_even, multiply, subtract
 
 
 def test_add():
@@ -9,6 +9,12 @@ def test_add():
 def test_subtract():
     assert subtract(5, 3) == 2
     assert subtract(-1, 1) == -2
+
+
+def test_multiply():
+    assert multiply(2, 3) == 6
+    assert multiply(-4, 5) == -20
+    assert multiply(0, 9) == 0
 
 
 def test_is_even():
