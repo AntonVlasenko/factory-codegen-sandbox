@@ -87,6 +87,10 @@ def vala(n: int) -> int:
     return n * 4
 
 
+def valb(n: int) -> int:
+    return n * 6
+
+
 def dozenx(n: int) -> int:
     return n * 12
 

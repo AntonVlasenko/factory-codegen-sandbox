@@ -14,6 +14,7 @@ from app import (
     septuple,
     triplex,
     vala,
+    valb,
 )
 
 
@@ -84,6 +85,12 @@ def test_vala():
     assert vala(0) == 0
     assert vala(3) == 12
     assert vala(-2) == -8
+
+
+def test_valb():
+    assert valb(0) == 0
+    assert valb(3) == 18
+    assert valb(-2) == -12
 
 
 def test_dozenx():
