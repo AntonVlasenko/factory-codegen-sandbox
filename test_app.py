@@ -17,6 +17,7 @@ from app import (
     dozenx,
     factorial,
     heptax,
+    iz3,
     lerpx,
     ninex,
     nove,
@@ -124,6 +125,12 @@ def test_heptax():
     assert heptax(0) == 0
     assert heptax(3) == 21
     assert heptax(-2) == -14
+
+
+def test_iz3():
+    assert iz3(0) == 0
+    assert iz3(3) == 21
+    assert iz3(-2) == -14
 
 
 def test_nove():
