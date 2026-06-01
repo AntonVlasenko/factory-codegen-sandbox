@@ -34,6 +34,10 @@ def nove(n: int) -> int:
     return n * 9
 
 
+def dozenx(n: int) -> int:
+    return n * 12
+
+
 def factorial(n: int) -> int:
     result = 1
     for value in range(2, n + 1):
