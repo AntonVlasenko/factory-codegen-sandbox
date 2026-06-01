@@ -1,4 +1,4 @@
-from app import Tag, add, add9, factorial, nove, septuple
+from app import Tag, add, add9, factorial, nove, septuple, timesfour
 
 
 def test_add():
@@ -22,6 +22,12 @@ def test_nove():
     assert nove(0) == 0
     assert nove(3) == 27
     assert nove(-2) == -18
+
+
+def test_timesfour():
+    assert timesfour(3) == 12
+    assert timesfour(0) == 0
+    assert timesfour(-2) == -8
 
 
 def test_factorial():
