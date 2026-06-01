@@ -1,4 +1,4 @@
-from app import Tag, add, factorial
+from app import Tag, add, subtract
 
 
 def test_add():
@@ -6,10 +6,9 @@ def test_add():
     assert add(-1, 1) == 0
 
 
-def test_factorial():
-    assert factorial(0) == 1
-    assert factorial(1) == 1
-    assert factorial(5) == 120
+def test_subtract():
+    assert subtract(5, 3) == 2
+    assert subtract(-1, -1) == 0
 
 
 def test_tag_label_lowercases_category_and_name():
