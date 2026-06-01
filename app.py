@@ -34,6 +34,10 @@ def heptax(n: int) -> int:
     return n * 7
 
 
+def pentax(n: int) -> int:
+    return n * 5
+
+
 def nove(n: int) -> int:
     return n * 9
 

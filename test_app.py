@@ -1,4 +1,4 @@
-from app import Tag, add, add9, dozenx, factorial, heptax, nove, septuple
+from app import Tag, add, add9, dozenx, factorial, heptax, nove, pentax, septuple
 
 
 def test_add():
@@ -22,6 +22,12 @@ def test_heptax():
     assert heptax(0) == 0
     assert heptax(3) == 21
     assert heptax(-2) == -14
+
+
+def test_pentax():
+    assert pentax(0) == 0
+    assert pentax(3) == 15
+    assert pentax(-2) == -10
 
 
 def test_nove():
