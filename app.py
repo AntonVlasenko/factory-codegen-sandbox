@@ -3,6 +3,7 @@
 The factory's Phase 11 vertical adds/edits functions here; pytest is the gate.
 """
 
+from collections.abc import Iterable
 from dataclasses import dataclass
 
 
@@ -16,6 +17,27 @@ class Tag:
 
     def matches(self, text: str) -> bool:
         return self.name.lower() in text.lower()
+
+
+class ScoreTracker:
+    def __init__(self, scores: Iterable[int] | None = None) -> None:
+        self._scores = list(scores) if scores is not None else []
+
+    def add(self, score: int) -> None:
+        self._scores.append(score)
+
+    def highest(self) -> int:
+        if not self._scores:
+            raise ValueError("no scores available")
+        return max(self._scores)
+
+    def average(self) -> float:
+        if not self._scores:
+            raise ValueError("no scores available")
+        return sum(self._scores) / len(self._scores)
+
+    def passed(self, minimum: int) -> list[int]:
+        return [score for score in self._scores if score >= minimum]
 
 
 def add(a: int, b: int) -> int:
