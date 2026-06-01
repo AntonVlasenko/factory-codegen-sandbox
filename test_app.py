@@ -10,6 +10,7 @@ from app import (
     heptax,
     ninex,
     nove,
+    octex,
     pentax,
     septuple,
     triplex,
@@ -77,6 +78,12 @@ def test_pentax():
     assert pentax(0) == 0
     assert pentax(3) == 15
     assert pentax(-2) == -10
+
+
+def test_octex():
+    assert octex(0) == 0
+    assert octex(3) == 24
+    assert octex(-2) == -16
 
 
 def test_dozenx():
