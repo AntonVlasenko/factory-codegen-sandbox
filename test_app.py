@@ -1,4 +1,5 @@
 from app import (
+    BracketValidator,
     Matrix2x2,
     RangeBucket,
     Tag,
@@ -161,3 +162,38 @@ def test_title_case_formatter_collapses_internal_whitespace():
     formatter = TitleCaseFormatter()
 
     assert formatter.format_name("john\t  quincy\nadams") == "John Quincy Adams"
+
+
+def test_bracket_validator_accepts_empty_text_and_text_without_brackets():
+    validator = BracketValidator()
+
+    assert validator.is_balanced("")
+    assert validator.is_balanced("plain text with 123 punctuation!")
+
+
+def test_bracket_validator_accepts_balanced_nested_brackets():
+    validator = BracketValidator()
+
+    assert validator.is_balanced("({[]})")
+    assert validator.is_balanced("function(arg[0], {key: (value)})")
+
+
+def test_bracket_validator_rejects_mismatched_or_crossed_brackets():
+    validator = BracketValidator()
+
+    assert not validator.is_balanced("(]")
+    assert not validator.is_balanced("([)]")
+
+
+def test_bracket_validator_rejects_unmatched_closing_bracket():
+    validator = BracketValidator()
+
+    assert not validator.is_balanced("]")
+    assert not validator.is_balanced("text ) after")
+
+
+def test_bracket_validator_rejects_unclosed_opening_brackets():
+    validator = BracketValidator()
+
+    assert not validator.is_balanced("(")
+    assert not validator.is_balanced("{[nested]")
