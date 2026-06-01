@@ -128,6 +128,10 @@ def walb(n: int) -> int:
     return n * 6
 
 
+def walc(n: int) -> int:
+    return n * 8
+
+
 def vald(n: int) -> int:
     return n * 11
 
