@@ -1,4 +1,4 @@
-from app import Tag, add, add9, dozenx, factorial, nove, septuple
+from app import Slugifier, Tag, add, add9, dozenx, factorial, nove, septuple
 
 
 def test_add():
@@ -48,3 +48,21 @@ def test_tag_matches_name_case_insensitively():
     assert tag.matches("I write PYTHON every day")
     assert tag.matches("cpython runtime")
     assert not tag.matches("I write Ruby every day")
+
+
+def test_slugifier_lowercases_and_uses_separators():
+    slugifier = Slugifier()
+
+    assert slugifier.build("Hello, Slug World!") == "hello-slug-world"
+
+
+def test_slugifier_collapses_and_strips_separators():
+    slugifier = Slugifier()
+
+    assert slugifier.build("  Many---separators___here  ") == "many-separators-here"
+
+
+def test_slugifier_returns_empty_string_when_no_alphanumerics():
+    slugifier = Slugifier()
+
+    assert slugifier.build("!@# --- ___") == ""
