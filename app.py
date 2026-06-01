@@ -6,3 +6,7 @@ The factory's Phase 11 vertical adds/edits functions here; pytest is the gate.
 
 def add(a: int, b: int) -> int:
     return a + b
+
+
+def sub3(n: int) -> int:
+    return n - 3
