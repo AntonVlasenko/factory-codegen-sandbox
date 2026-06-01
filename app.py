@@ -59,6 +59,32 @@ class TemperatureConverter:
         return (fahrenheit - 32) * 5 / 9
 
 
+@dataclass
+class BankAccount:
+    owner: str
+    balance: float
+
+    def deposit(self, amount: float) -> float:
+        if amount < 0:
+            raise ValueError("deposit amount cannot be negative")
+
+        self.balance += amount
+        return self.balance
+
+    def withdraw(self, amount: float) -> float:
+        if amount < 0:
+            raise ValueError("withdrawal amount cannot be negative")
+        if amount > self.balance:
+            raise ValueError("insufficient funds")
+
+        self.balance -= amount
+        return self.balance
+
+    def apply_interest(self, rate: float) -> float:
+        self.balance += self.balance * rate
+        return self.balance
+
+
 class TitleCaseFormatter:
     def format_name(self, text: str) -> str:
         return " ".join(text.split()).title()
