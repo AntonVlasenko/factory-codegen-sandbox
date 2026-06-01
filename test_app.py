@@ -1,4 +1,7 @@
+import pytest
+
 from app import (
+    BankAccount,
     BracketValidator,
     Matrix2x2,
     RangeBucket,
@@ -178,6 +181,48 @@ def test_temperature_converter_fahrenheit_to_celsius_freezing_and_boiling():
 
     assert converter.fahrenheit_to_celsius(32) == 0
     assert converter.fahrenheit_to_celsius(212) == 100
+
+
+def test_bank_account_deposits_amount_and_returns_new_balance():
+    account = BankAccount(owner="Ada", balance=100)
+
+    assert account.deposit(25) == 125
+    assert account.balance == 125
+
+
+def test_bank_account_withdraws_amount_and_returns_new_balance():
+    account = BankAccount(owner="Ada", balance=100)
+
+    assert account.withdraw(30) == 70
+    assert account.balance == 70
+
+
+def test_bank_account_applies_interest_and_returns_new_balance():
+    account = BankAccount(owner="Ada", balance=100)
+
+    assert account.apply_interest(0.05) == 105
+    assert account.balance == 105
+
+
+def test_bank_account_rejects_negative_deposit():
+    account = BankAccount(owner="Ada", balance=100)
+
+    with pytest.raises(ValueError):
+        account.deposit(-1)
+
+
+def test_bank_account_rejects_negative_withdrawal():
+    account = BankAccount(owner="Ada", balance=100)
+
+    with pytest.raises(ValueError):
+        account.withdraw(-1)
+
+
+def test_bank_account_rejects_withdrawal_exceeding_balance():
+    account = BankAccount(owner="Ada", balance=100)
+
+    with pytest.raises(ValueError):
+        account.withdraw(101)
 
 
 def test_title_case_formatter_trims_and_title_cases_name():
