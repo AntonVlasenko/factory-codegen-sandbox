@@ -1,6 +1,7 @@
 from app import (
     RangeBucket,
     Tag,
+    WordHistogram,
     add,
     add9,
     dozenx,
@@ -94,3 +95,12 @@ def test_tag_matches_name_case_insensitively():
     assert tag.matches("I write PYTHON every day")
     assert tag.matches("cpython runtime")
     assert not tag.matches("I write Ruby every day")
+
+
+def test_word_histogram_counts_lowercase_alphabetic_words_only():
+    histogram = WordHistogram()
+
+    assert histogram.top_counts("Hello, hello! HELLO... world? 123 world.") == {
+        "hello": 3,
+        "world": 2,
+    }
