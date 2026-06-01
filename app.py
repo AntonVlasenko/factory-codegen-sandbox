@@ -4,6 +4,7 @@ The factory's Phase 11 vertical adds/edits functions here; pytest is the gate.
 """
 
 from dataclasses import dataclass
+import re
 
 
 @dataclass
@@ -16,6 +17,12 @@ class Tag:
 
     def matches(self, text: str) -> bool:
         return self.name.lower() in text.lower()
+
+
+class Slugifier:
+    def build(self, text: str) -> str:
+        slug = re.sub(r"[^a-z0-9]+", "-", text.lower())
+        return slug.strip("-")
 
 
 def add(a: int, b: int) -> int:
