@@ -20,6 +20,10 @@ def double(n: int) -> int:
     return 2 * n
 
 
+def negate(n: int) -> int:
+    return -n
+
+
 def is_even(n: int) -> bool:
     return n % 2 == 0
 
