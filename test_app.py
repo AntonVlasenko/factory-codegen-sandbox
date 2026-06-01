@@ -1,4 +1,4 @@
-from app import Tag, add, add9, dozenx, factorial, nove, septuple
+from app import ScoreTracker, Tag, add, add9, dozenx, factorial, nove, septuple
 
 
 def test_add():
@@ -48,3 +48,25 @@ def test_tag_matches_name_case_insensitively():
     assert tag.matches("I write PYTHON every day")
     assert tag.matches("cpython runtime")
     assert not tag.matches("I write Ruby every day")
+
+
+def test_score_tracker_accepts_starting_scores():
+    tracker = ScoreTracker([72, 95, 88])
+
+    assert tracker.highest() == 95
+    assert tracker.average() == 85.0
+
+
+def test_score_tracker_add_appends_score():
+    tracker = ScoreTracker([10, 20])
+
+    tracker.add(30)
+
+    assert tracker.highest() == 30
+    assert tracker.average() == 20.0
+
+
+def test_score_tracker_passed_returns_scores_in_original_order():
+    tracker = ScoreTracker([65, 90, 72, 88, 90])
+
+    assert tracker.passed(80) == [90, 88, 90]
