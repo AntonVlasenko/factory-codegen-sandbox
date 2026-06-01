@@ -7,6 +7,7 @@ from app import (
     add9,
     dozenx,
     factorial,
+    hexex,
     heptax,
     ninex,
     nove,
@@ -77,6 +78,12 @@ def test_pentax():
     assert pentax(0) == 0
     assert pentax(3) == 15
     assert pentax(-2) == -10
+
+
+def test_hexex():
+    assert hexex(0) == 0
+    assert hexex(3) == 18
+    assert hexex(-2) == -12
 
 
 def test_dozenx():
