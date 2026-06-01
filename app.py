@@ -42,6 +42,10 @@ def ninex(n: int) -> int:
     return n * 9
 
 
+def triplex(n: int) -> int:
+    return n * 3
+
+
 def dozenx(n: int) -> int:
     return n * 12
 
