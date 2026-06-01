@@ -83,6 +83,10 @@ def pentax(n: int) -> int:
     return n * 5
 
 
+def octex(n: int) -> int:
+    return n * 8
+
+
 def dozenx(n: int) -> int:
     return n * 12
 
