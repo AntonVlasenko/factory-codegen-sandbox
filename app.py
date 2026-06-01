@@ -4,6 +4,8 @@ The factory's Phase 11 vertical adds/edits functions here; pytest is the gate.
 """
 
 from dataclasses import dataclass
+from collections import Counter
+import re
 
 
 @dataclass
@@ -16,6 +18,12 @@ class Tag:
 
     def matches(self, text: str) -> bool:
         return self.name.lower() in text.lower()
+
+
+class WordHistogram:
+    def top_counts(self, text: str) -> dict[str, int]:
+        words = re.findall(r"[a-z]+", text.lower())
+        return dict(Counter(words))
 
 
 def add(a: int, b: int) -> int:
