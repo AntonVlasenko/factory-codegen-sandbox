@@ -19,6 +19,7 @@ from app import (
     vala,
     valb,
     vald,
+    wala,
 )
 
 
@@ -89,6 +90,12 @@ def test_vala():
     assert vala(0) == 0
     assert vala(3) == 12
     assert vala(-2) == -8
+
+
+def test_wala():
+    assert wala(0) == 0
+    assert wala(3) == 12
+    assert wala(-2) == -8
 
 
 def test_valb():

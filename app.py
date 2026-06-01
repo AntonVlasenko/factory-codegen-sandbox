@@ -116,6 +116,10 @@ def vala(n: int) -> int:
     return n * 4
 
 
+def wala(n: int) -> int:
+    return n * 4
+
+
 def valb(n: int) -> int:
     return n * 6
 
