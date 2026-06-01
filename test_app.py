@@ -6,6 +6,7 @@ from app import (
     add,
     add9,
     dozenx,
+    elevex,
     factorial,
     heptax,
     ninex,
@@ -90,6 +91,12 @@ def test_dozenx():
     assert dozenx(0) == 0
     assert dozenx(3) == 36
     assert dozenx(-2) == -24
+
+
+def test_elevex():
+    assert elevex(0) == 0
+    assert elevex(3) == 33
+    assert elevex(-2) == -22
 
 
 def test_factorial():

@@ -91,6 +91,10 @@ def dozenx(n: int) -> int:
     return n * 12
 
 
+def elevex(n: int) -> int:
+    return n * 11
+
+
 def factorial(n: int) -> int:
     result = 1
     for value in range(2, n + 1):
