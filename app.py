@@ -18,6 +18,22 @@ class Tag:
         return self.name.lower() in text.lower()
 
 
+class Slugifier:
+    def build(self, text: str) -> str:
+        slug = []
+        previous_was_separator = False
+
+        for character in text.lower():
+            if character.isalnum():
+                slug.append(character)
+                previous_was_separator = False
+            elif not previous_was_separator:
+                slug.append("-")
+                previous_was_separator = True
+
+        return "".join(slug).strip("-")
+
+
 def add(a: int, b: int) -> int:
     return a + b
 
