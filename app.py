@@ -59,6 +59,11 @@ class TemperatureConverter:
         return (fahrenheit - 32) * 5 / 9
 
 
+class TitleCaseFormatter:
+    def format_name(self, text: str) -> str:
+        return " ".join(text.split()).title()
+
+
 def add(a: int, b: int) -> int:
     return a + b
 

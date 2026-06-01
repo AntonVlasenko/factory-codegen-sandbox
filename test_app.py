@@ -3,6 +3,7 @@ from app import (
     RangeBucket,
     Tag,
     TemperatureConverter,
+    TitleCaseFormatter,
     WordHistogram,
     add,
     add9,
@@ -148,3 +149,15 @@ def test_temperature_converter_fahrenheit_to_celsius_freezing_and_boiling():
 
     assert converter.fahrenheit_to_celsius(32) == 0
     assert converter.fahrenheit_to_celsius(212) == 100
+
+
+def test_title_case_formatter_trims_and_title_cases_name():
+    formatter = TitleCaseFormatter()
+
+    assert formatter.format_name("  jANE doe  ") == "Jane Doe"
+
+
+def test_title_case_formatter_collapses_internal_whitespace():
+    formatter = TitleCaseFormatter()
+
+    assert formatter.format_name("john\t  quincy\nadams") == "John Quincy Adams"
