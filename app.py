@@ -222,6 +222,10 @@ def dozenx(n: int) -> int:
     return n * 12
 
 
+def signx(n: int | float) -> int:
+    return (n > 0) - (n < 0)
+
+
 def clampx(x: int | float, lo: int | float, hi: int | float) -> int | float:
     return max(lo, min(x, hi))
 
