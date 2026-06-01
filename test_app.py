@@ -1,9 +1,12 @@
+import pytest
+
 from app import (
     BracketValidator,
     Matrix2x2,
     RangeBucket,
     Tag,
     TemperatureConverter,
+    TimeRange,
     TitleCaseFormatter,
     WordHistogram,
     add,
@@ -40,6 +43,52 @@ def test_range_bucket_labels_first_matching_bound_and_overflow():
     assert bucket.label(11) == "bucket_1"
     assert bucket.label(30) == "bucket_2"
     assert bucket.label(31) == "bucket_overflow"
+
+
+def test_time_range_calculates_duration_minutes():
+    time_range = TimeRange(60, 150)
+
+    assert time_range.duration_minutes() == 90
+
+
+def test_time_range_contains_start_and_excludes_end():
+    time_range = TimeRange(60, 150)
+
+    assert time_range.contains(60)
+    assert time_range.contains(149)
+    assert not time_range.contains(59)
+    assert not time_range.contains(150)
+
+
+def test_time_range_detects_overlaps_and_adjacent_ranges():
+    time_range = TimeRange(60, 150)
+
+    assert time_range.overlaps(TimeRange(0, 61))
+    assert time_range.overlaps(TimeRange(149, 240))
+    assert not time_range.overlaps(TimeRange(0, 60))
+    assert not time_range.overlaps(TimeRange(150, 240))
+
+
+def test_time_range_accepts_full_day_bounds():
+    time_range = TimeRange(0, 1440)
+
+    assert time_range.duration_minutes() == 1440
+    assert time_range.contains(0)
+    assert time_range.contains(1439)
+    assert not time_range.contains(1440)
+
+
+def test_time_range_rejects_invalid_bounds():
+    invalid_bounds = [
+        (-1, 60),
+        (60, 60),
+        (120, 60),
+        (60, 1441),
+    ]
+
+    for start, end in invalid_bounds:
+        with pytest.raises(ValueError):
+            TimeRange(start, end)
 
 
 def test_add():

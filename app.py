@@ -22,6 +22,25 @@ class Matrix2x2:
         return (self.a * x + self.b * y, self.c * x + self.d * y)
 
 
+@dataclass
+class TimeRange:
+    start: int
+    end: int
+
+    def __post_init__(self) -> None:
+        if not 0 <= self.start < self.end <= 1440:
+            raise ValueError("TimeRange requires 0 <= start < end <= 1440")
+
+    def duration_minutes(self) -> int:
+        return self.end - self.start
+
+    def contains(self, minute: int) -> bool:
+        return self.start <= minute < self.end
+
+    def overlaps(self, other: "TimeRange") -> bool:
+        return self.start < other.end and other.start < self.end
+
+
 class RangeBucket:
     def __init__(self, upper_bounds: list[float]):
         self.upper_bounds = upper_bounds
