@@ -22,6 +22,10 @@ def add(a: int, b: int) -> int:
     return a + b
 
 
+def add7(n: int) -> int:
+    return n + 7
+
+
 def factorial(n: int) -> int:
     result = 1
     for value in range(2, n + 1):

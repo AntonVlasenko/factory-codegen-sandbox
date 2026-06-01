@@ -1,9 +1,15 @@
-from app import Tag, add, factorial
+from app import Tag, add, add7, factorial
 
 
 def test_add():
     assert add(2, 3) == 5
     assert add(-1, 1) == 0
+
+
+def test_add7():
+    assert add7(0) == 7
+    assert add7(5) == 12
+    assert add7(-10) == -3
 
 
 def test_factorial():
