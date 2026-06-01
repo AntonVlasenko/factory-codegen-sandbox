@@ -2,6 +2,7 @@ from app import (
     Matrix2x2,
     RangeBucket,
     Tag,
+    TemperatureConverter,
     WordHistogram,
     add,
     add9,
@@ -133,3 +134,17 @@ def test_word_histogram_counts_lowercase_alphabetic_words_only():
         "hello": 3,
         "world": 2,
     }
+
+
+def test_temperature_converter_celsius_to_fahrenheit_freezing_and_boiling():
+    converter = TemperatureConverter()
+
+    assert converter.celsius_to_fahrenheit(0) == 32
+    assert converter.celsius_to_fahrenheit(100) == 212
+
+
+def test_temperature_converter_fahrenheit_to_celsius_freezing_and_boiling():
+    converter = TemperatureConverter()
+
+    assert converter.fahrenheit_to_celsius(32) == 0
+    assert converter.fahrenheit_to_celsius(212) == 100
