@@ -17,6 +17,7 @@ from app import (
     dozenx,
     factorial,
     heptax,
+    iz1,
     lerpx,
     ninex,
     nove,
@@ -142,6 +143,12 @@ def test_triplex():
     assert triplex(0) == 0
     assert triplex(3) == 9
     assert triplex(-2) == -6
+
+
+def test_iz1():
+    assert iz1(0) == 0
+    assert iz1(3) == 9
+    assert iz1(-2) == -6
 
 
 def test_pentax():
