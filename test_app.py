@@ -21,6 +21,7 @@ from app import (
     vald,
     wala,
     walb,
+    walc,
     wald,
 )
 
@@ -110,6 +111,12 @@ def test_walb():
     assert walb(0) == 0
     assert walb(3) == 18
     assert walb(-2) == -12
+
+
+def test_walc():
+    assert walc(0) == 0
+    assert walc(3) == 24
+    assert walc(-2) == -16
 
 
 def test_vald():
