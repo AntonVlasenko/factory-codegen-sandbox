@@ -8,6 +8,20 @@ from collections import Counter
 import re
 
 
+@dataclass
+class Matrix2x2:
+    a: float
+    b: float
+    c: float
+    d: float
+
+    def determinant(self) -> float:
+        return self.a * self.d - self.b * self.c
+
+    def multiply_vector(self, x: float, y: float) -> tuple[float, float]:
+        return (self.a * x + self.b * y, self.c * x + self.d * y)
+
+
 class RangeBucket:
     def __init__(self, upper_bounds: list[float]):
         self.upper_bounds = upper_bounds

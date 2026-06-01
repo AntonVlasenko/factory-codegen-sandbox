@@ -1,4 +1,5 @@
 from app import (
+    Matrix2x2,
     RangeBucket,
     Tag,
     WordHistogram,
@@ -13,6 +14,13 @@ from app import (
     septuple,
     triplex,
 )
+
+
+def test_matrix2x2_calculates_determinant_and_multiplies_vector():
+    matrix = Matrix2x2(1, 2, 3, 4)
+
+    assert matrix.determinant() == -2
+    assert matrix.multiply_vector(5, 6) == (17, 39)
 
 
 def test_range_bucket_labels_first_matching_bound_and_overflow():
