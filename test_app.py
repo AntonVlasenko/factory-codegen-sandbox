@@ -18,6 +18,7 @@ from app import (
     factorial,
     heptax,
     iz1,
+    iz2,
     lerpx,
     ninex,
     nove,
@@ -149,6 +150,12 @@ def test_iz1():
     assert iz1(0) == 0
     assert iz1(3) == 9
     assert iz1(-2) == -6
+
+
+def test_iz2():
+    assert iz2(0) == 0
+    assert iz2(3) == 15
+    assert iz2(-2) == -10
 
 
 def test_pentax():
