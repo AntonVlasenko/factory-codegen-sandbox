@@ -30,6 +30,10 @@ def septuple(n: int) -> int:
     return 7 * n
 
 
+def heptax(n: int) -> int:
+    return n * 7
+
+
 def nove(n: int) -> int:
     return n * 9
 
