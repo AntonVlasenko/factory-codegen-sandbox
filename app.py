@@ -186,6 +186,10 @@ def triplex(n: int) -> int:
     return n * 3
 
 
+def iz1(n: int) -> int:
+    return n * 3
+
+
 def pentax(n: int) -> int:
     return n * 5
 
