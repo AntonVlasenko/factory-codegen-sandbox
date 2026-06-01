@@ -19,6 +19,7 @@ from app import (
     vala,
     valb,
     vald,
+    walc,
 )
 
 
@@ -101,6 +102,12 @@ def test_vald():
     assert vald(0) == 0
     assert vald(3) == 33
     assert vald(-2) == -22
+
+
+def test_walc():
+    assert walc(0) == 0
+    assert walc(3) == 24
+    assert walc(-2) == -16
 
 
 def test_dozenx():

@@ -124,6 +124,10 @@ def vald(n: int) -> int:
     return n * 11
 
 
+def walc(n: int) -> int:
+    return n * 8
+
+
 def dozenx(n: int) -> int:
     return n * 12
 
