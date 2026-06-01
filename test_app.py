@@ -1,4 +1,16 @@
-from app import Tag, add, add9, dozenx, factorial, heptax, ninex, nove, septuple, triplex
+from app import (
+    Tag,
+    add,
+    add9,
+    dozenx,
+    factorial,
+    heptax,
+    ninex,
+    nove,
+    pentax,
+    septuple,
+    triplex,
+)
 
 
 def test_add():
@@ -40,6 +52,12 @@ def test_triplex():
     assert triplex(0) == 0
     assert triplex(3) == 9
     assert triplex(-2) == -6
+
+
+def test_pentax():
+    assert pentax(0) == 0
+    assert pentax(3) == 15
+    assert pentax(-2) == -10
 
 
 def test_dozenx():
