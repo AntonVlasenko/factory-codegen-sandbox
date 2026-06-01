@@ -1,6 +1,11 @@
-from app import add
+from app import add, dectuple
 
 
 def test_add():
     assert add(2, 3) == 5
     assert add(-1, 1) == 0
+
+
+def test_dectuple():
+    assert dectuple(3) == 30
+    assert dectuple(-2) == -20
