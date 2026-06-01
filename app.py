@@ -30,6 +30,10 @@ def septuple(n: int) -> int:
     return 7 * n
 
 
+def triplex(n: int) -> int:
+    return n * 3
+
+
 def nove(n: int) -> int:
     return n * 9
 
