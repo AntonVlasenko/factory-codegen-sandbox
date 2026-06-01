@@ -158,6 +158,10 @@ def add(a: int, b: int) -> int:
     return a + b
 
 
+def lerpx(a: float, b: float, t: float) -> float:
+    return a + (b - a) * t
+
+
 def add9(n: int) -> int:
     return n + 9
 

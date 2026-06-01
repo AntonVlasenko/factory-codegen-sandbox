@@ -17,6 +17,7 @@ from app import (
     dozenx,
     factorial,
     heptax,
+    lerpx,
     ninex,
     nove,
     pentax,
@@ -97,6 +98,13 @@ def test_time_range_rejects_invalid_bounds():
 def test_add():
     assert add(2, 3) == 5
     assert add(-1, 1) == 0
+
+
+def test_lerpx_interpolates_between_endpoints():
+    assert lerpx(10, 20, 0) == 10
+    assert lerpx(10, 20, 1) == 20
+    assert lerpx(10, 20, 0.25) == 12.5
+    assert lerpx(20, 10, 0.5) == 15
 
 
 def test_add9():
