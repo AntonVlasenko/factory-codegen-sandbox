@@ -79,6 +79,10 @@ def triplex(n: int) -> int:
     return n * 3
 
 
+def quadex(n: int) -> int:
+    return n * 4
+
+
 def pentax(n: int) -> int:
     return n * 5
 

@@ -11,6 +11,7 @@ from app import (
     ninex,
     nove,
     pentax,
+    quadex,
     septuple,
     triplex,
 )
@@ -71,6 +72,12 @@ def test_triplex():
     assert triplex(0) == 0
     assert triplex(3) == 9
     assert triplex(-2) == -6
+
+
+def test_quadex():
+    assert quadex(0) == 0
+    assert quadex(3) == 12
+    assert quadex(-2) == -8
 
 
 def test_pentax():
