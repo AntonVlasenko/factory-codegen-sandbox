@@ -1,4 +1,4 @@
-from app import Tag, add, add9, factorial, septuple
+from app import Tag, add, add9, factorial, nove, septuple
 
 
 def test_add():
@@ -16,6 +16,12 @@ def test_septuple():
     assert septuple(0) == 0
     assert septuple(3) == 21
     assert septuple(-2) == -14
+
+
+def test_nove():
+    assert nove(0) == 0
+    assert nove(3) == 27
+    assert nove(-2) == -18
 
 
 def test_factorial():
