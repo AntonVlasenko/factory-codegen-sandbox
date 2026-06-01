@@ -83,6 +83,10 @@ def pentax(n: int) -> int:
     return n * 5
 
 
+def hexex(n: int) -> int:
+    return n * 6
+
+
 def dozenx(n: int) -> int:
     return n * 12
 
