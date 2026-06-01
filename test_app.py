@@ -20,6 +20,7 @@ from app import (
     valb,
     vald,
     wala,
+    walc,
     wald,
 )
 
@@ -103,6 +104,12 @@ def test_valb():
     assert valb(0) == 0
     assert valb(3) == 18
     assert valb(-2) == -12
+
+
+def test_walc():
+    assert walc(0) == 0
+    assert walc(3) == 24
+    assert walc(-2) == -16
 
 
 def test_vald():
