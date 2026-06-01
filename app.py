@@ -64,6 +64,22 @@ class TitleCaseFormatter:
         return " ".join(text.split()).title()
 
 
+class BracketValidator:
+    def is_balanced(self, text: str) -> bool:
+        pairs = {")": "(", "]": "[", "}": "{"}
+        opening = set(pairs.values())
+        stack: list[str] = []
+
+        for character in text:
+            if character in opening:
+                stack.append(character)
+            elif character in pairs:
+                if not stack or stack.pop() != pairs[character]:
+                    return False
+
+        return not stack
+
+
 def add(a: int, b: int) -> int:
     return a + b
 
