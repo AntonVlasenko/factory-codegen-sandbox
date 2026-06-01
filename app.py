@@ -3,6 +3,20 @@
 The factory's Phase 11 vertical adds/edits functions here; pytest is the gate.
 """
 
+from dataclasses import dataclass
+
+
+@dataclass
+class Tag:
+    name: str
+    category: str
+
+    def label(self) -> str:
+        return f"{self.category}:{self.name}".lower()
+
+    def matches(self, text: str) -> bool:
+        return self.name.lower() in text.lower()
+
 
 def add(a: int, b: int) -> int:
     return a + b
