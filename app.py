@@ -6,6 +6,17 @@ The factory's Phase 11 vertical adds/edits functions here; pytest is the gate.
 from dataclasses import dataclass
 
 
+class RangeBucket:
+    def __init__(self, upper_bounds: list[float]):
+        self.upper_bounds = upper_bounds
+
+    def label(self, value: float) -> str:
+        for index, bound in enumerate(self.upper_bounds):
+            if value <= bound:
+                return f"bucket_{index}"
+        return "bucket_overflow"
+
+
 @dataclass
 class Tag:
     name: str

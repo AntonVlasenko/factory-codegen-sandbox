@@ -1,4 +1,5 @@
 from app import (
+    RangeBucket,
     Tag,
     add,
     add9,
@@ -11,6 +12,15 @@ from app import (
     septuple,
     triplex,
 )
+
+
+def test_range_bucket_labels_first_matching_bound_and_overflow():
+    bucket = RangeBucket([10, 20, 30])
+
+    assert bucket.label(10) == "bucket_0"
+    assert bucket.label(11) == "bucket_1"
+    assert bucket.label(30) == "bucket_2"
+    assert bucket.label(31) == "bucket_overflow"
 
 
 def test_add():
