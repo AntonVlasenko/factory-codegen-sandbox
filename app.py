@@ -26,6 +26,10 @@ def add9(n: int) -> int:
     return n + 9
 
 
+def triplex(n: int) -> int:
+    return n * 3
+
+
 def septuple(n: int) -> int:
     return 7 * n
 
